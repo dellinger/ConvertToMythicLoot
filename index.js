@@ -40,10 +40,11 @@ app.get('/', function (req, res) {
           if(CONVERT_TO_MYTHIC.indexOf(news.characterName) > -1) {
              // console.log("We have news");
              // console.log(`${news.characterName} received item ${news.itemId} on ${news.friendlyDate}`)
-             log.push(`${news.characterName} received item ${news.itemId} on ${news.friendlyDate}`);
+             //log.push(`${news.characterName} received item ${news.itemId} on ${news.friendlyDate}`);
+             log.push(news);
           }
       }
-      res.render('index', { title: guildData.name, message: `Number of Guildies: ${guildData.characters.length}`, logs: log });
+      res.render('index', { title: guildData.name, message: `Number of Guildies: ${guildData.characters.length}`, news: log});
   });
   
 });
