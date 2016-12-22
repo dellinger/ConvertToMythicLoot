@@ -1,11 +1,19 @@
 html
   head
     title= title
+    script.
+      var wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true };
+      console.log("Whee");
     script( src='https://code.jquery.com/jquery-3.1.1.min.js' )
     script( src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' )  
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script( src='http://wow.zamimg.com/widgets/power.js')
+
   body.jumbotron
       h1= title
       h1= message
       each log in news
-          p #{log.characterName} received #{log.itemId}
+        p 
+          | #{log.characterName} received 
+          a(href="http://www.wowhead.com/item=" + log.itemId).q3 #{log.itemId} 
+          | on #{log.friendlyDate}
