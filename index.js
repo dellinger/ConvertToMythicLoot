@@ -48,7 +48,10 @@ app.get('/', function (req, res) {
   
 });
 
-app.listen(process.env.PORT || 3000);
+var port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`App is running on port ${port}`);
+});
 
 var CONVERT_TO_MYTHIC = ["Envin",
                         "Tattva",
