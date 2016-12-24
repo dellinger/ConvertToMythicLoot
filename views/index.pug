@@ -3,20 +3,24 @@ html
     title= title
     script.
       var wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true };
-      console.log("Whee");
-    script( src='https://code.jquery.com/jquery-3.1.1.min.js' )
-    script( src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' )  
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-    script( src='http://wow.zamimg.com/widgets/power.js')
+    link(rel="stylesheet",href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' )  
+    link(rel="stylesheet",href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.css' )  
 
-  body.jumbotron
+    script(type='text/javascript',src='https://code.jquery.com/jquery-3.1.1.min.js' )
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.js' )
+    script(type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' )
+
+    script(type='text/javascript' src='http://wow.zamimg.com/widgets/power.js')
+
+  body
+    .jumbotron
       h1= title
       h1= message
       div
-        table.table
+        table.table.table-striped(data-toggle="table",data-filter-control=true)
           thead
             tr 
-              th name
+              th(data-field="name" data-filter-control="input") name
               th item
               th date
               th Bonus Lists
