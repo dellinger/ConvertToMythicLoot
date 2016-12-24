@@ -74,7 +74,8 @@ var CONVERT_TO_MYTHIC = ["Envin",
                         "Tandcrumpets",
                         "Dellkin",
                         "Locryn",
-                        "Nhato"
+                        "Nhato",
+                        "Lateraius"
                         ];
 
 
