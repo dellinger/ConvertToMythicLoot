@@ -50,7 +50,29 @@ app.get('/', function (req, res) {
 
 app.listen(3000);
 
-var CONVERT_TO_MYTHIC = ["Envin","Tattva","Rhyno","Holybee"];
+var CONVERT_TO_MYTHIC = ["Envin",
+                        "Tattva",
+                        "Rhyno",
+                        "Holybee",
+                        "Tovo",
+                        "Krabpeople",
+                        "Pasha",
+                        "Theory",
+                        "Holybee",
+                        "Ciphervex",
+                        "Howland",
+                        "Shealani",
+                        "Lateralus",
+                        "Dumpersterdan",
+                        "Kavoc",
+                        "Kleptik",
+                        "Repans",
+                        "Lucos",
+                        "Tandcrumpets",
+                        "Dellkin",
+                        "Locryn",
+                        "Nhato"
+                        ];
 
 
 
