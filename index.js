@@ -19,7 +19,6 @@ const NewsItem = require('./models/NewsItem');
 
 var express = require('express');
 var app = express();
-var wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true };
 app.set('views', './views');
 app.set('view engine', 'pug');
 // blizzard.wow.character(['profile','audit'], { origin: 'us', realm: 'aerie-peak', name: 'Envin' })
@@ -44,7 +43,7 @@ app.get('/', function (req, res) {
              log.push(news);
           }
       }
-      res.render('index', { title: guildData.name, message: `Number of Guildies: ${guildData.characters.length}`, news: log});
+      res.render('index', { title: "Convert to Mythic Loot Drops", message: `Number of Guildies: ${guildData.characters.length}`, news: log});
   });
   
 });

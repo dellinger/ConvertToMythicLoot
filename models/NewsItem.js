@@ -6,6 +6,7 @@ class NewsItem {
         this.context = rawData.context;
         this.itemId = rawData.itemId; //TODO: instantiate actual item
         this.bonusLists = rawData.bonusLists;
+        this.bonusListsFormattedWowhead = this.bonusLists.join(":");
         this.timestamp = rawData.timestamp;
         this.type = rawData.type;
         this.friendlyDate = moment(this.timestamp).format("dddd, MMMM Do YYYY, h:mm:ss a");

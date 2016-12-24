@@ -12,8 +12,28 @@ html
   body.jumbotron
       h1= title
       h1= message
-      each log in news
-        p 
-          | #{log.characterName} received 
-          a(href="http://www.wowhead.com/item=" + log.itemId).q3 #{log.itemId} 
-          | on #{log.friendlyDate}
+      div
+        table.table
+          thead
+            tr 
+              th name
+              th item
+              th date
+              th Bonus Lists
+              th context
+              th type
+          tbody.table-striped
+            each log in news
+              tr
+                td
+                  p=log.characterName
+                td
+                  a(href="http://www.wowhead.com/item=" + log.itemId, rel="bonus=" + log.bonusListsFormattedWowhead ).q3=log.itemId 
+                td
+                  p=log.friendlyDate
+                td
+                  p=log.bonusLists
+                td
+                  p=log.context
+                td
+                  p=log.type
