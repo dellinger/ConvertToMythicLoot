@@ -3,9 +3,12 @@ div.navbar.navbar-inverse.navbar-static-top(role='navigation')
         div.navbar-header
             button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
                 span.icon-bar
+                span.icon-bar
             a.navbar-brand(href="#")
                 | Envins shit
         div.collapse.navbar-collapse
             ul.nav.navbar-nav
-                li.active
-                    a(href="#") Convert to Mythic Loot
+                li(class=(title === 'Convert to Mythic Loot' ? 'active' : ''))
+                    a(href="/") Convert to Mythic Loot
+                li(class=(title === 'Artifact Power' ? 'active' : ''))
+                    a(href="/artifact") Artifact Power
