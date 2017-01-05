@@ -15,6 +15,7 @@
 require('dotenv').config()
 const blizzard = require('blizzard.js').initialize({ apikey: process.env.BATTLENET_API_KEY });
 const Guild = require('./models/Guild');
+const Character = require('./models/Character');
 const NewsItem = require('./models/NewsItem');
 
 var express = require('express');
@@ -47,8 +48,15 @@ app.get('/', function (req, res) {
   });
 });
 
-app.get('/artifact', (req, res) => {
-
+app.get('/artifact', function(req,res) {
+    // blizzard.wow.character(['achievements','criteria'],{ream: 'aerie-peak', name:'Envin', origin:'us'})
+    //   .then(response => {
+    //       var characterData = new CharacterData(blizzard,response.data);
+    //   })
+    blizzard.wow.character(['profile', 'achievements'], { realm: 'aerie-peak', name: 'envin', origin: 'us' })
+      .then(response => {
+        var characterData = new Character(blizzard,response.data);
+  });
 });
 
 var port = process.env.PORT || 3000;
