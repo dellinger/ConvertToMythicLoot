@@ -8,18 +8,22 @@ class Character {
             this.level = rawMembersData.character.level;
             this.class = rawMembersData.character.class;
             this.lastModified = rawMembersData.character.lastModified;
+        } else {
+            this.name = rawMembersData.name;
+            this.level = rawMembersData.level;
+            this.class = rawMembersData.class;
+            this.lastModified = rawMembersData.lastModified;
         }
 
-        
         if(rawMembersData.achievements){
             var achievementPoints = rawMembersData.achievementPoints;
             var achievementList = rawMembersData.achievements.criteria;
             var quantityList = rawMembersData.achievements.criteriaQuantity;
             
-            var key1 = this.achievementList.indexOf(30103);
-            var key2 = this.achievementList.indexOf(29395);
-            this.artifactPower = this.quantityList[key1];
-            this.artifactLevel = this.quantityList[key2];
+            var key1 = achievementList.indexOf(30103);
+            var key2 = achievementList.indexOf(29395);
+            this.artifactPower = quantityList[key1];
+            this.artifactLevel = quantityList[key2];
         }
         
     }

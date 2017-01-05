@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "blizzard.js": "^1.6.0",
+    "bluebird": "^3.4.7",
     "chart.js": "^2.4.0",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",

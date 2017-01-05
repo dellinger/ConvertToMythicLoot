@@ -17,6 +17,7 @@ const blizzard = require('blizzard.js').initialize({ apikey: process.env.BATTLEN
 const Guild = require('./models/Guild');
 const Character = require('./models/Character');
 const NewsItem = require('./models/NewsItem');
+const Promise = require('bluebird');
 
 var express = require('express');
 var app = express();
@@ -49,15 +50,30 @@ app.get('/', function (req, res) {
 });
 
 app.get('/artifact', function(req,res) {
-    // blizzard.wow.character(['achievements','criteria'],{ream: 'aerie-peak', name:'Envin', origin:'us'})
-    //   .then(response => {
-    //       var characterData = new CharacterData(blizzard,response.data);
-    //   })
-    blizzard.wow.character(['profile', 'achievements'], { realm: 'aerie-peak', name: 'envin', origin: 'us' })
-      .then(response => {
-        var characterData = new Character(blizzard,response.data);
-  });
+    Promise.map(CONVERT_TO_MYTHIC,retrieveRaidCharacterInformation).then(function(results) {
+        console.log("Something");
+        res.render('artifact', { title: "Convert to Mythic Artifact", characters: results});
+    }, function(err){
+       console.log("Bad");
+    });
+
+   
 });
+
+//TODO: Move this into a different file
+function retrieveRaidCharacterInformation(name) {
+   return new Promise( (resolve,reject) => {
+      blizzard.wow.character(['profile', 'achievements'], { realm: 'aerie-peak', name: name, origin: 'us' })
+        .then(response => {
+            console.log(`Retrieved char info for ${name}`);
+            var characterData = new Character(blizzard,response.data);
+            resolve(characterData);
+    }, err => {
+        console.log(`Couldn't retrieve ${name}`);
+        reject("What??");
+    });
+  });
+}
 
 var port = process.env.PORT || 3000;
 app.listen(port, () => {
@@ -76,8 +92,8 @@ var CONVERT_TO_MYTHIC = ["Envin",
                         "Ciphervex",
                         "Howland",
                         "Shealani",
-                        "Lateralus",
-                        "Dumpersterdan",
+                        "Lateraius",
+                        "Dumpsterdan",
                         "Kavoc",
                         "Kleptik",
                         "Repans",
@@ -85,8 +101,7 @@ var CONVERT_TO_MYTHIC = ["Envin",
                         "Tandcrumpets",
                         "Dellkin",
                         "Locryn",
-                        "Nhato",
-                        "Lateraius"
+                        "Nhato"
                         ];
 
 

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  div.container
+
+    table.table.table-striped(data-toggle="table",data-filter-control=true)
+      thead
+        tr 
+          th(data-field="name" data-filter-control="input") Name
+          th Artifact Power
+          th Artifact Weapon Level
+      tbody.table-striped
+        each character in characters
+          tr
+            td
+              p=character.name
+            td
+              p=character.artifactPower
+            td
+              p=character.artifactLevel
