@@ -45,7 +45,10 @@ app.get('/', function (req, res) {
       }
       res.render('index', { title: "Convert to Mythic Loot Drops", message: `Number of Guildies: ${guildData.characters.length}`, news: log});
   });
-  
+});
+
+app.get('/artifact', (req, res) => {
+
 });
 
 var port = process.env.PORT || 3000;

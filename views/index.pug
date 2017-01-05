@@ -1,43 +1,20 @@
-html
-  head
-    title= title
-    script.
-      var wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true };
-    link(rel="stylesheet",href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' )  
-    link(rel="stylesheet",href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.css' )  
+extends layout
 
-    script(type='text/javascript',src='https://code.jquery.com/jquery-3.1.1.min.js' )
-    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.js' )
-    script(type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' )
+block content
+  div.container
 
-    script(type='text/javascript' src='https://wow.zamimg.com/widgets/power.js')
-
-  body
-    .jumbotron
-      h1= title
-      h1= message
-      div
-        table.table.table-striped(data-toggle="table",data-filter-control=true)
-          thead
-            tr 
-              th(data-field="name" data-filter-control="input") name
-              th item
-              th date
-              th Bonus Lists
-              th context
-              th type
-          tbody.table-striped
-            each log in news
-              tr
-                td
-                  p=log.characterName
-                td
-                  a(href="http://www.wowhead.com/item=" + log.itemId, rel="bonus=" + log.bonusListsFormattedWowhead ).q3=log.itemId 
-                td
-                  p=log.friendlyDate
-                td
-                  p=log.bonusLists
-                td
-                  p=log.context
-                td
-                  p=log.type
+    table.table.table-striped(data-toggle="table",data-filter-control=true)
+      thead
+        tr 
+          th(data-field="name" data-filter-control="input") name
+          th item
+          th date
+      tbody.table-striped
+        each log in news
+          tr
+            td
+              p=log.characterName
+            td
+              a(href="http://www.wowhead.com/item=" + log.itemId, rel="bonus=" + log.bonusListsFormattedWowhead ).q3=log.itemId 
+            td
+              p=log.friendlyDate
