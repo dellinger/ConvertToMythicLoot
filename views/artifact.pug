@@ -11,10 +11,10 @@ block content
           th Artifact Weapon Level
       tbody.table-striped
         each character in characters
-          tr
+          tr(class=character.class)
             td
               p=character.name
             td
-              p=character.artifactPower
+              p=character.artifactPower.toLocaleString()
             td
               p=character.artifactLevel

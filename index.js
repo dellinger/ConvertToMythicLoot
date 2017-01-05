@@ -23,6 +23,7 @@ var express = require('express');
 var app = express();
 app.set('views', './views');
 app.set('view engine', 'pug');
+app.use(express.static('public'))
 // blizzard.wow.character(['profile','audit'], { origin: 'us', realm: 'aerie-peak', name: 'Envin' })
 //   .then(response => {
 //     console.log(response.data);
