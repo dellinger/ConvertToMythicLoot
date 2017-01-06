@@ -53,7 +53,25 @@ app.get('/', function (req, res) {
 app.get('/artifact', function(req,res) {
     Promise.map(CONVERT_TO_MYTHIC,retrieveRaidCharacterInformation).then(function(results) {
         console.log("Something");
-        res.render('artifact', { title: "Convert to Mythic Artifact", characters: results});
+        //Pass in a data object for chartjs
+        var orderedArtifactPowerList = results.map(char => {return char.artifactPower});
+        var orderedArtifactLevelList = results.map(char => {return char.artifactLevel});
+        var orderedLabels = results.map(char => {return "\'" + char.name + "\'"});
+        var backgroundColorChart = results.map(char => {
+            //TODO: Logic for class color
+            return "\'rgba(255, 99, 132, 0.2)\'";
+        })
+        var borderColor = results.map(char => {
+            //TODO: Logic for class color
+            return "\'rgba(255, 99, 132, 1)\'";
+        })
+
+        res.render('artifact', { title: "Convert to Mythic Artifact",
+             orderedArtifactPowerList: [orderedArtifactPowerList],
+             orderedLabels: [orderedLabels],
+             backgroundColorChart : [backgroundColorChart],
+             borderColor : [borderColor]
+        });
     }, function(err){
        console.log("Bad");
     });

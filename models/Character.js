@@ -1,5 +1,6 @@
 "use strict"; 
 class Character {
+
     constructor(Context,rawMembersData) {
         this.context = Context;
         this.rank = rawMembersData.rank;
@@ -24,6 +25,10 @@ class Character {
             var key2 = achievementList.indexOf(29395);
             this.artifactPower = quantityList[key1];
             this.artifactLevel = quantityList[key2];
+        }
+        this.metadata = {
+            chartBackgroundColor : 'rgba(255, 99, 132, 0.2)',
+            chartBorderColor : 'rgba(255,99,132,1)'
         }
         
     }

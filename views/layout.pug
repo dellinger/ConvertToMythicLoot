@@ -9,17 +9,13 @@ html
     script(type='text/javascript',src='https://code.jquery.com/jquery-3.1.1.min.js' )
     script(type='text/javascript' src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js' )
     script(type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' )
-    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js' )
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js' )
 
     script(type='text/javascript' src='https://wow.zamimg.com/widgets/power.js')
     script.
       var wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true };
-      $(document).ready( function () {
-        $('#artifactInformation').DataTable({
-            paging: false,
-            searching: false
-        });
-      });
+
+
 
   body
     include header
