@@ -2,78 +2,29 @@ extends layout
 
 block content
   div.container
-    //- table.table.table-striped(id="artifactInformation",data-toggle="table",data-filter-control=true)
-    //-   thead
-    //-     tr 
-    //-       th(data-field="name" data-filter-control="input") Name
-    //-       th Artifact Power
-    //-       th Artifact Weapon Level
-    //-   tbody.table-striped
-    //-     each character in characters
-    //-       tr(class=character.class)
-    //-         td
-    //-           p=character.name
-    //-         td
-    //-           p=character.artifactPower.toLocaleString()
-    //-         td
-    //-           p=character.artifactLevel
-    canvas(id = "myChart", width = "400", height = "400")
+    table.table.table-striped(id="artifactInformation",data-toggle="table",data-filter-control=true)
+      thead
+        tr 
+          th(data-field="name" data-filter-control="input") Name
+          th Artifact Power
+          th Artifact Weapon Level
+      tbody.table-striped
+        each character in characters
+          tr(class=character.class)
+            td
+              p=character.name
+            td
+              p=character.artifactPower.toLocaleString()
+            td
+              p=character.artifactLevel
     script.
-        jQuery(document).ready( function () {
-          var ctx = document.getElementById("myChart");
-          var myChart = new Chart(ctx, {
-              type: 'bar',
-              data: {
-                  labels: [#{orderedLabels}],
-                  datasets: [{
-                      label: 'Artifact Knowledge',
-                      data: [#{orderedArtifactPowerList}],
-                      backgroundColor: [#{backgroundColorChart}],
-                      borderColor: [#{borderColor}],
-                      borderWidth: 1
-                  },
-                  {
-                      label: 'Artifact Level',
-                      data: [#{orderedArtifactLevelList}],
-                      backgroundColor: [#{backgroundColorChart}],
-                      borderColor: [#{borderColor}],
-                      borderWidth: 1
-                  }]
-              },
-              options: {
-                  scales: {
-                      yAxes: [{
-                          ticks: {
-                              beginAtZero:false
-                          }
-                      }]
-                  }
-              }
+           $('#artifactInformation').DataTable({
+               paging: false,
+               searching: false,
+               ordering: false,
+               order: [[1,'dec']],
+               fixedHeader : {
+                   header: true,
+                   footer: false
+               }
           });
-          //- //- $('#artifactInformation').DataTable({
-          //- //-     paging: false,
-          //- //-     searching: false
-          //- //- });
-          //- var ctx = document.getElementById("myChart");
-          //- var myBarchart = new Chart(ctx, {
-          //-     type: 'bar',
-          //-  //   labels: [#{orderedLabels}],
-          //-     labels: ["Envin","Tattva"],
-          //-     data:  {
-          //-     dataSets: {
-          //-       label: 'Artifact Power',
-          //-      // data: [#{orderedArtifactPowerList}],
-          //-       data:[23839808,36598388],
-          //-        backgroundColor: [
-          //-       'rgba(255, 99, 132, 0.2)',
-          //-       'rgba(54, 162, 235, 0.2)',
-          //-   ],
-          //-   borderColor: [
-          //-       'rgba(255,99,132,1)',
-          //-       'rgba(54, 162, 235, 1)',
-          //-   ],
-          //-       borderWidth: 1,
-          //-       }
-          //-     }
-          //- })
-        });

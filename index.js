@@ -64,9 +64,16 @@ app.get('/artifact', function(req,res) {
         var borderColor = results.map(char => {
             //TODO: Logic for class color
             return "\'rgba(255, 99, 132, 1)\'";
-        })
+        });
+
+        results.sort((a,b) => {
+            return a.artifactPower > b.artifactPower;
+        });
+
+        //TODO: Create a scoreboard like page with that sorted data.
 
         res.render('artifact', { title: "Convert to Mythic Artifact",
+             characters: results,
              orderedArtifactPowerList: [orderedArtifactPowerList],
              orderedLabels: [orderedLabels],
              backgroundColorChart : [backgroundColorChart],

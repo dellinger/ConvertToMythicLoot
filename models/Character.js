@@ -29,9 +29,9 @@ class Character {
         this.metadata = {
             chartBackgroundColor : 'rgba(255, 99, 132, 0.2)',
             chartBorderColor : 'rgba(255,99,132,1)'
-        }
-        
+        }   
     }
+
     static CharacterFactory(Context,rawMembersData) {
         let characters = [];
         for(var member in rawMembersData) {
@@ -41,6 +41,10 @@ class Character {
             console.warn("Did you forget to add 'members' to the api call?");
         }
         return characters;    
+    }
+
+    static GetCharacterClass() {
+        
     }
 }  
 module.exports = Character;
