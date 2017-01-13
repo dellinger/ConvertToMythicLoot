@@ -127,7 +127,8 @@ var CONVERT_TO_MYTHIC = ["Envin",
                         "Dellkin",
                         "Locryn",
                         "Nhato",
-                        "Millari"
+                        "Millari",
+                        "Bunz"
                         ];
 
 
