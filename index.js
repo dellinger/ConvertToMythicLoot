@@ -89,7 +89,6 @@ var CONVERT_TO_MYTHIC = ["Envin",
                         "Krabpeople",
                         "Pasha",
                         "Theory",
-                        "Holybee",
                         "Ciphervex",
                         "Howland",
                         "Shealani",
@@ -103,7 +102,9 @@ var CONVERT_TO_MYTHIC = ["Envin",
                         "Dellkin",
                         "Locryn",
                         "Nhato",
-                        "Millari"
+                        "Millari",
+                        "Bunz",
+                        "Jalpwn"
                         ];
 
 
